@@ -1,0 +1,36 @@
+.picture{
+  padding-bottom: 3vh;
+  
+}
+
+.login{
+    width: 250px;
+    height: 30px;
+    border: 1px solid#a8aaac;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Comfortaa';
+    padding-left: 5px;
+    background-color: rgba(234, 236, 227, 0.841);
+   
+}
+
+.login-button{
+    background: #3A5681;
+    color: rgb(253, 253, 253);
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.6s;
+    overflow: hidden;
+    font-family: 'Comfortaa';
+    font-size: 18px;
+    margin: 5px;
+    box-shadow: 3px 2px 3px black;
+}
+
+.login-button:hover{
+    background: #8CBB4C
+}
