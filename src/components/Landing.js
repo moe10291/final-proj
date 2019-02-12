@@ -17,7 +17,7 @@ class Landing extends Component {
         let res = await axios.post('/auth/login', { email, password });
 
         this.setState({ email: '', password: '' })
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data.loggedIn) {
             this.props.history.push('/list');
         }
@@ -34,8 +34,8 @@ class Landing extends Component {
         this.setState({ password: value })
     }
     render() {
-        console.log(this.state.email)
-        console.log(this.state.password)
+        // console.log(this.state.email)
+        // console.log(this.state.password)
         return (
             <div>
                 <div className='picture'>

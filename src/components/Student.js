@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Stars from './Rate';
+
 
 const student = (props) => {
     let { id, first_name, last_name } = props.student
 
     return (
         <div key={id}>
-            
-            <Link to={`/${id}`}><p>{first_name + ', ' + last_name}</p></Link>
+            <p>{first_name + ', ' + last_name}</p>
+            <Link to={`/${id}`}>Rate</Link>
+            <br></br>
+            <Link to={`/detail/${id}`}>View Rating</Link>
         </div>
     )
 }

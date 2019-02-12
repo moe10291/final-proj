@@ -27,3 +27,7 @@ app.listen(SERVER_PORT, ()=> {
 app.post('/auth/login', ctrl.login)
 app.get('/list', ctrl.studentsList)
 app.post('/rating/rate', ctrl.rating)
+app.get('/rating/avg', ctrl.average)
+app.get(`/detail/:id`, ctrl.getDetail)
+app.delete('/comment/:id', ctrl.deleteCmnt)
+app.put('/update/:id', ctrl.updateCmnt)

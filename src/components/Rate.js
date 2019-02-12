@@ -17,6 +17,7 @@ class Stars extends Component {
             have_again: true,
             users_id: 0,
             student_id: 0,
+            avg:0,
             rates: []
 
         }
@@ -24,7 +25,7 @@ class Stars extends Component {
     }
  componentDidMount(){
      this.setState({student_id: this.props.match.params.id})
-     console.log('***WHATISIT***',this.props.match.params.id)
+    //  console.log('***WHATISIT***',this.props.match.params.id)
  }
 
     handleDescription(text) {
@@ -33,7 +34,7 @@ class Stars extends Component {
 
     async rating() {
         let { users_id, student_id, dedication, attendance, independent, organization, initiative, respectful, comments, have_again } = this.state
-        console.log('**SOMETHING*', dedication, attendance, independent, organization, initiative, respectful, comments, have_again)
+        // console.log('**SOMETHING*', dedication, attendance, independent, organization, initiative, respectful, comments, have_again)
         const res = await axios.post('/rating/rate', { users_id, student_id, dedication, attendance, independent, organization, initiative, respectful, comments, have_again })
         this.setState({ rates: res.data })
         alert('Your Review has been submitted')
@@ -48,6 +49,13 @@ class Stars extends Component {
         this.setState({ [e]: stars })
     }
 
+    stdRatings=()=>{
+        axios.get('/rating/avg')
+        .then (res => {
+            // console.log('*&&&&*RESULT*&&&*')
+            this.setState({avg: res.data})
+        })
+    }
     
 
     render() {
@@ -138,6 +146,8 @@ class Stars extends Component {
                 <h3>Comments</h3><textarea className='desc' rows='10' cols='80' value={this.state.comments} onChange={(e) => this.handleDescription(e.target.value)}></textarea>
                 <br></br>
                 <button className='submit' onClick={this.rating}>Submit</button>
+               
+
             </div>
         )
     }
