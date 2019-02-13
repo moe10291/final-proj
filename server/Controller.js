@@ -71,11 +71,12 @@ module.exports = {
     },
 
     deleteCmnt: async (req, res)=> {
-        //REQ.PARAMS.ID should be ratings id.
-        const { id } = req.params
+        //REQ.PARAMS.commId should be ratings id.
+        const {id}= req.params
+        const { commId } = req.params
         const db= req.app.get('db')
         console.log(req.params)
-        let remove= await db.delete_comment([id])
+        let remove= await db.delete_comment([commId, id])
         res.status(200).send(remove)
     },
 

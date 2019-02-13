@@ -16,20 +16,27 @@ class Detail extends Component {
         
         axios.get(`/detail/${id}`)
         .then(res => {
-            console.log(res)
+            console.log(id)
             this.setState({ detail: res.data })
             // console.log('***WHATISIT***',this.props.match.params.id)
         })
+
     }
     
-    deleteCmnt = (id) => {
-        console.log('WORKING??????', id)
-         axios.delete(`/comment/${id}`)
-            .then(res => {
+    deleteCmnt = async (commId) => {
+        const { id } = this.props.match.params
+        console.log('WORKING??????', commId)
+         let res = await axios.delete(`/comment/${commId}/${id}`)
                 this.setState({ detail: res.data })
+             
                 //res.data= remove from back-end. we are recevigig data from the back-end. 
-            })
-    }
+                await axios.get(`/detail/${id}`)
+                .then(res => {
+                    console.log(id)
+                    this.setState({ detail: res.data })
+                    // console.log('***WHATISIT***',this.props.match.params.id)
+                })
+            }
 
     handleComment(text){
         this.setState({comments: text})
