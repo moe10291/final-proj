@@ -34,7 +34,7 @@ class Stars extends Component {
 
     async rating() {
         let { users_id, student_id, dedication, attendance, independent, organization, initiative, respectful, comments, have_again } = this.state
-        // console.log('**SOMETHING*', dedication, attendance, independent, organization, initiative, respectful, comments, have_again)
+        console.log('**SOMETHING*', this.state)
         const res = await axios.post('/rating/rate', { users_id, student_id, dedication, attendance, independent, organization, initiative, respectful, comments, have_again })
         this.setState({ rates: res.data })
         alert('Your Review has been submitted')
@@ -52,7 +52,6 @@ class Stars extends Component {
     stdRatings=()=>{
         axios.get('/rating/avg')
         .then (res => {
-            // console.log('*&&&&*RESULT*&&&*')
             this.setState({avg: res.data})
         })
     }

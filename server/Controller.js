@@ -33,7 +33,7 @@ module.exports = {
         const db = req.app.get('db')
         db.get_students_list()
             .then(students => {
-                // console.log('**', students)
+                console.log('**', students)
                 res.status(200).send(students)
             })
     },
@@ -75,13 +75,13 @@ module.exports = {
         const {id}= req.params
         const { commId } = req.params
         const db= req.app.get('db')
-        console.log(req.params)
+        // console.log(req.params)
         let remove= await db.delete_comment([commId, id])
         res.status(200).send(remove)
     },
 
     updateCmnt: async(req, res)=> {
-        console.log(req.body)
+        // console.log(req.body)
         let {comments}= req.body
         const {id}= req.params
         const db= req.app.get('db')

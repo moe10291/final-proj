@@ -25,10 +25,10 @@ class List extends Component {
 
     render() {
         let mapStudents = this.state.list.filter((val, i) => {
-            // console.log('**STUDENT**',val)
+            console.log('**STUDENT**',val)
             return val.first_name.toLowerCase().includes(this.state.name.toLowerCase()) || val.last_name.toLowerCase().includes(this.state.name.toLowerCase())
         }).map((student) => {
-            //    console.log(this.state.list[i])
+               console.log(this.state.list)
             return (
                 <Student student={student} />
             )
